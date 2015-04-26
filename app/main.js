@@ -10,13 +10,6 @@ define(function (require) {
     var windowWidth = $(window).width();
     windowWidth = 350;
 
-    //var stage = new PIXI.Stage(0xFFFFFF);
-    //var renderer = PIXI.autoDetectRenderer(windowWidth, windowHeight, {
-    //    transparent: true
-    //});
-    //var graphics = new PIXI.Graphics();
-    document.body.appendChild(renderer.view);
-
     var $body = $('body');
     var $content = $('#content');
     var gui = new dat.GUI({
@@ -76,16 +69,7 @@ define(function (require) {
 
     function renderScene() {
         resetHtml();
-        resetCanvas();
-
-        switch (settings.type) {
-            case 'Pixi.js':
-                renderCanvas();
-                break;
-            default:
-                renderHtml();
-                break;
-        }
+        renderHtml();
     }
 
     function renderHtml() {
@@ -99,29 +83,13 @@ define(function (require) {
         $content.html($(elementsDiv));
     }
 
-    function renderCanvas() {
-        //_.times(settings.elements, function () {
-        //    graphics.beginFill(0xFFCC00);
-        //    graphics.drawRect(getRandomWidth(), getRandomHeight(), 50, 50);
-        //    stage.addChild(graphics);
-        //});
-        //renderer.render(stage);
-    }
-
     function resetHtml() {
-        //console.log('[INFO] reset HTML');
         _.forEach(elements, function (element) {
             element.stopAnimating = true;
             element.remove();
             delete element;
         });
         elements.length = 0;
-    }
-
-    function resetCanvas() {
-        //graphics.clear();
-        //renderer.render(stage);
-        //console.log('[INFO] reset canvas');
     }
 
     function animate() {
@@ -137,8 +105,6 @@ define(function (require) {
                 break;
             case 'GSAP':
                 animateWithGsap();
-                break;
-            case 'Pixi.js':
                 break;
         }
     }
@@ -163,10 +129,6 @@ define(function (require) {
     function getRandomHeight() {
         return _.random(0, windowHeight);
     }
-
-    //var region = new Marionette.Region({
-    //    el: '#content'
-    //});
 
     renderScene();
 
@@ -261,13 +223,4 @@ define(function (require) {
     function parseStringToInt(value) {
         return parseInt(value.split('px')[0], 10);
     }
-
-    //function componentToHex(c) {
-    //    var hex = c.toString(16);
-    //    return hex.length == 1 ? "0" + hex : hex;
-    //}
-    //
-    //function rgbToHex(r, g, b) {
-    //    return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
-    //}
 });
