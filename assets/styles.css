@@ -1,0 +1,113 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    width: 100%;
+}
+
+select {
+    color: #333;
+}
+
+.box {
+    height: 50px;
+    position: absolute;
+    width: 50px;
+}
+
+body.box-shadow .box {
+    box-shadow: 0 0 20px #AAA;
+}
+
+body.border-radius .box {
+    border-radius: 50px;
+}
+
+body.translate-z .box {
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+#gui {
+    position: absolute;
+    z-index: 1000;
+}
+
+#canvas {
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+
+/*body {*/
+    /*background: rgb(30, 28, 26);*/
+/*}*/
+
+/*body,*/
+/*a,*/
+/*button {*/
+    /*color: #eee;*/
+    /*font-family: 'Roboto Condensed';*/
+/*}*/
+
+/*button.active {*/
+    /*background: orange;*/
+/*}*/
+
+/*button,*/
+/*input {*/
+    /*background: transparent;*/
+    /*border: 1px solid #EEE;*/
+    /*border-radius: 3px;*/
+    /*font-weight: 300;*/
+    /*padding: 10px;*/
+    /*width: 100%;*/
+/*}*/
+
+/*input {*/
+    /*background: white;*/
+    /*color: #333;*/
+/*}*/
+
+/*.sidebar {*/
+    /*background: rgb(50, 48, 46);*/
+    /*position: fixed;*/
+    /*z-index: 1000;*/
+/*}*/
+
+/*a.active,*/
+/*a:hover,*/
+/*a:focus,*/
+/*a:active {*/
+    /*color: #333;*/
+    /*text-decoration: none;*/
+/*}*/
+
+/*a.active .item-menu,*/
+/*a:hover .item-menu {*/
+    /*background: orange;*/
+/*}*/
+
+/*.item-menu {*/
+    /*padding: 10px;*/
+/*}*/
+
+/*.box {*/
+    /*float: left;*/
+    /*height: 50px;*/
+    /*position: absolute;*/
+    /*width: 50px;*/
+/*}*/
+
+/*.gpu-layer {*/
+    /*-webkit-transform: translatez(0);*/
+    /*-moz-transform: translatez(0);*/
+    /*-ms-transform: translatez(0);*/
+    /*-o-transform: translatez(0);*/
+    /*transform: translatez(0);*/
+/*}*/
+

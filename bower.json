@@ -1,0 +1,24 @@
+{
+  "name": "tlu",
+  "version": "0.0.0",
+  "authors": [
+    "manuelvulp <manuelvulp@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~1.11.2",
+    "move.js": "0.3.3",
+    "gsap": "1.16.1",
+    "pixi.js": "2.2.8",
+    "underscore": "~1.8.2",
+    "requirejs": "~2.1.16",
+    "dat.gui": "*"
+  }
+}
