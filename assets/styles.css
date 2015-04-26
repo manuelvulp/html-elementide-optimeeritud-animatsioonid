@@ -24,6 +24,7 @@ body.border-radius .box {
     border-radius: 50px;
 }
 
+#gui,
 body.translate-z .box {
     -webkit-transform: translateZ(0);
     -moz-transform: translateZ(0);
@@ -35,6 +36,10 @@ body.translate-z .box {
 #gui {
     position: absolute;
     z-index: 1000;
+}
+
+.dg.main .close-button {
+    position: relative !important;
 }
 
 #canvas {

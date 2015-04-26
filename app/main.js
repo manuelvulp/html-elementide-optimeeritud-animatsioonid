@@ -4,13 +4,17 @@ define(function (require) {
     var _ = require('underscore');
     var $ = require('jquery');
     var move = require('move');
-    var PIXI = require('pixi');
 
-    var stage = new PIXI.Stage(0xFFFFFF);
-    var renderer = PIXI.autoDetectRenderer(1920, 1024, {
-        transparent: true
-    });
-    var graphics = new PIXI.Graphics();
+    var windowHeight = $(window).height();
+    windowHeight = 500;
+    var windowWidth = $(window).width();
+    windowWidth = 350;
+
+    //var stage = new PIXI.Stage(0xFFFFFF);
+    //var renderer = PIXI.autoDetectRenderer(windowWidth, windowHeight, {
+    //    transparent: true
+    //});
+    //var graphics = new PIXI.Graphics();
     document.body.appendChild(renderer.view);
 
     var $body = $('body');
@@ -40,7 +44,7 @@ define(function (require) {
 
     var controls = new Controls();
     var controlType = gui.add(controls, 'type', ['JavaScript', 'Move.js', 'jQuery', 'GSAP', 'Pixi.js']);
-    var controlElements = gui.add(controls, 'elements', [100, 500, 1000, 2000, 5000]);
+    var controlElements = gui.add(controls, 'elements', [1, 100, 500, 1000, 2000, 5000]);
     var controlBoxShadow = gui.add(controls, 'boxShadow');
     var controlBorderRadius = gui.add(controls, 'borderRadius');
     var controlTranslateZ = gui.add(controls, 'translateZ');
@@ -96,12 +100,12 @@ define(function (require) {
     }
 
     function renderCanvas() {
-        _.times(settings.elements, function () {
-            graphics.beginFill(0xFFCC00);
-            graphics.drawRect(getRandomWidth(), getRandomHeight(), 50, 50);
-            stage.addChild(graphics);
-        });
-        renderer.render(stage);
+        //_.times(settings.elements, function () {
+        //    graphics.beginFill(0xFFCC00);
+        //    graphics.drawRect(getRandomWidth(), getRandomHeight(), 50, 50);
+        //    stage.addChild(graphics);
+        //});
+        //renderer.render(stage);
     }
 
     function resetHtml() {
@@ -115,9 +119,9 @@ define(function (require) {
     }
 
     function resetCanvas() {
-        graphics.clear();
-        renderer.render(stage);
-        console.log('[INFO] reset canvas');
+        //graphics.clear();
+        //renderer.render(stage);
+        //console.log('[INFO] reset canvas');
     }
 
     function animate() {
@@ -153,11 +157,11 @@ define(function (require) {
     }
 
     function getRandomWidth() {
-        return _.random(0, 1920);
+        return _.random(0, windowWidth);
     }
 
     function getRandomHeight() {
-        return _.random(0, 1024);
+        return _.random(0, windowHeight);
     }
 
     //var region = new Marionette.Region({
@@ -216,6 +220,7 @@ define(function (require) {
                 .duration(3000)
                 .add('left', getNewTargetLeft(box))
                 .add('top', getNewTargetTop(box))
+                .ease('linear')
                 .end(function () {
                     _.delay(function () {
                         animateBox(box);
